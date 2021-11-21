@@ -8,8 +8,8 @@ root.withdraw()
 
 if messagebox.askyesno("Message","Do you want to open a single file?") == True:
 
-    #open file dialog and select a single file manually
-    path_and_file = filedialog.askopenfilename()
+    # open file dialog and select a single file manually
+    path_and_file = filedialog.askopenfilename() #can limit file types displayed with e.g.: askopenfilename(filetypes = (('xls files','*.xls'),))
     path_name = os.path.split(path_and_file)[0]
     file_name = os.path.split(path_and_file)[1]
 
@@ -19,6 +19,8 @@ if messagebox.askyesno("Message","Do you want to open a single file?") == True:
 
 
 if messagebox.askyesno("Message","Do you want to open multiple files?") == True:
+
+    # open file dialog and select multiple files manually
     files_tupple = filedialog.askopenfilenames()
     print(files_tupple)
 
@@ -29,3 +31,4 @@ if messagebox.askyesno("Message","Do you want to open multiple files?") == True:
         print(path_and_file)
         print(path_name)
         print(file_name)
+

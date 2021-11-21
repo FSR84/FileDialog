@@ -1,17 +1,31 @@
 import tkinter as tk
-from tkinter import filedialog
+from tkinter import filedialog, messagebox
 import os
 
 root = tk.Tk()
 root.withdraw()
 
-#open file dialog and select a file manually
-path_and_file = filedialog.askopenfilename()
-path_name = os.path.split(path_and_file)[0]
-file_name = os.path.split(path_and_file)[1]
 
-print(path_and_file)
-print(path_name)
-print(file_name)
+if messagebox.askyesno("Message","Do you want to open a single file?") == True:
+
+    #open file dialog and select a single file manually
+    path_and_file = filedialog.askopenfilename()
+    path_name = os.path.split(path_and_file)[0]
+    file_name = os.path.split(path_and_file)[1]
+
+    print(path_and_file)
+    print(path_name)
+    print(file_name)
 
 
+if messagebox.askyesno("Message","Do you want to open multiple files?") == True:
+    files_tupple = filedialog.askopenfilenames()
+    print(files_tupple)
+
+    for path_and_file in files_tupple:
+        path_name = os.path.split(path_and_file)[0]
+        file_name = os.path.split(path_and_file)[1]
+
+        print(path_and_file)
+        print(path_name)
+        print(file_name)
